@@ -188,16 +188,21 @@ y.test <- medv[-train]
 
 
 # Task 1:
+print('Task 1')
 
 # Fit using training set
 ds.out <- ds_alg(X.train, y.train)
+print('ds.out: attrib, s, y.less, y.larg')
+print(ds.out)
 # Predict on test set
 y.hat <- ds_pred(X.test, ds.out)
 # Test MSE
 mse.out <- mse(y.test, y.hat)
-
+print('mse.out:')
+print(mse.out)
 
 # Task 2: 
+print('Task 2')
 
 # Init
 learn.rate <- 0.01
@@ -209,9 +214,11 @@ fb.arr <- bds_alg(X.train, y.train, learn.rate, B)
 y.hat <- bds_pred(X.test, fb.arr, learn.rate, B)
 # Test MSE
 mse.out <- mse(y.test, y.hat)
-
+print('mse.out:')
+print(mse.out)
 
 # Task 3:
+print('Task 3')
 
 # Init
 learn.rate <- 0.01
@@ -229,8 +236,10 @@ for (i in 1:length(B.arr)) {
 }
 
 # Show Arrays
-mse.out
-B.arr
+print('mse.out:')
+print(mse.out)
+print('B.arr:')
+print(B.arr)
 
 # Plot
 plot(B.arr[12:29], mse.out[12:29], main='Test MSE v Number of Trees', xlab='Number of Trees (B)', ylab='Test MSE', type='b', col='blue')
